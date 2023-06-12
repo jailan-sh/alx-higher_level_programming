@@ -14,6 +14,7 @@ int is_palindrome(listint_t **head)
 	listint_t *prev = NULL;
 	listint_t *next = NULL;
 	listint_t *current = NULL;
+	listint_t *temp = *head;
 
 	if (*head == NULL)
 		return (1);
@@ -35,11 +36,11 @@ int is_palindrome(listint_t **head)
 		prev = current;
 		current = next;
 	}
-	while (*head && prev)
+	while (temp && prev)
 	{
-		if ((*head)->n != prev->n)
+		if ((temp)->n != prev->n)
 			return (0);
-		*head = (*head)->next;
+		temp = temp->next;
 		prev = prev->next;
 	}
 
