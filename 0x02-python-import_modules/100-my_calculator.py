@@ -8,11 +8,8 @@ if __name__ == "__main__":
 
     a = int(sys.argv[1])
     b = int(sys.argv[3])
-<<<<<<< HEAD
     operator = sys.argv[2] 
-=======
     operator = sys.argv[2]
->>>>>>> edb4d581fc3054be668a7892f69d16b9ae59895f
     if operator not in ['+', '-', '*', '/']:
         print("Unknown operator. Available operators: +, -, * and /")
         sys.exit(1)
