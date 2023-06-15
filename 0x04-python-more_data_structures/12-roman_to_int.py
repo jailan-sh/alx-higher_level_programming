@@ -12,5 +12,5 @@ def roman_to_int(roman_string):
                 num += dic[roman_string[n]]
             n -= 1
         return num
-    else:
+    elif roman_string is None or not isinstance(roman_string, str):
         return 0
