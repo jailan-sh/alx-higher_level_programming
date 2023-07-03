@@ -90,5 +90,5 @@ class Rectangle:
     @classmethod
     def square(cls, size=0):
         """ class method """
-        cls.width == cls.height == cls.size
-        return cls(size, size)
+        new_rect = cls(height = size, width = size)
+        return new_rect
