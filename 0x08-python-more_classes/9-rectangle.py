@@ -55,16 +55,16 @@ class Rectangle:
 
     def __str__(self):
         """ print rectangle to stdout # """
-        if self.height == 0 or self.width == 0:
-            return ""
+        recstr = ""
+        if self.width == 0 or self.height == 0:
+            return (recstr)
         else:
-            rec_str = ""
-            for i in range(self.height):
-                for j in range(self.width):
-                    rec_str += str(self.print_symbol)
-                if (i != (self.height - 1)):
-                    rec_str += '\n'
-        return rec_str
+            sym = self.print_symbol
+            for j in range(self.height):
+                recstr += "{}".format(sym * self.__width)
+                if j != (self.height - 1):
+                    recstr += "\n"
+        return recstr
 
     def __repr__(self):
         """represent a string may used to create new object from class"""
@@ -89,5 +89,5 @@ class Rectangle:
 
     @classmethod
     def square(cls, size=0):
-        """ Alternate constructor """
+        """ class method constructor """
         return cls(size, size)
