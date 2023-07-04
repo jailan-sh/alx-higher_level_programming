@@ -1,0 +1,139 @@
+ Doctest for add_integer function
+====================================
+
+
+``add_integer(a, b)`` a function that return adds of 2 integers.
+arguments must be integers or floats otherwise raise error.
+
+Import function
+===============
+
+	>>> add_integer = __import__("0-add_integer").add_integer
+
+Add Two Integers
+================
+
+	>>> add_integer(4, 3)
+	7
+
+	>>> add_integer(0, 3)
+	3
+
+	>>> add_integer(-2, 0)
+	-2
+
+	>>> add_integer(-2, -5)
+	-7
+
+	>>> add_integer(-2, 3)
+	1
+
+Add Two Floats
+===============
+    >>> add_integer(4.0, 3.0)
+    7
+
+    >>> add_integer(-2.0, 3.0)
+    1
+
+    >>> add_integer(-2.0, -5.0)
+    -7
+
+    >>> add_integer(2.0, -3.0)
+    -1
+
+Non-Numbers
+===========
+
+raise a TypeError
+
+String
+
+    >>> add_integer("jil", 25)
+    Traceback (most recent call last):
+              ...
+    TypeError: a must be an integer
+
+
+    >>> add_integer(25, "jil")
+    Traceback (most recent call last):
+              ...
+    TypeError: b must be an integer
+
+character
+
+    >>> add_integer('J', 8)
+    Traceback (most recent call last):
+              ...
+    TypeError: a must be an integer
+
+
+    >>> add_integer(8, 'j')
+    Traceback (most recent call last):
+              ...
+    TypeError: b must be an integer
+
+List
+
+    >>> add_integer([25, 8], 4)
+    Traceback (most recent call last):
+              ...
+    TypeError: a must be an integer
+
+
+    >>> add_integer(4, [8, 25])
+    Traceback (most recent call last):
+              ...
+    TypeError: b must be an integer
+
+tuple
+
+    >>> add_integer((25, 8), 4)
+    Traceback (most recent call last):
+              ...
+    TypeError: a must be an integer
+
+
+    >>> add_integer(4, (8, 25))
+    Traceback (most recent call last):
+              ...
+    TypeError: b must be an integer
+
+set
+
+    >>> add_integer({25, 8}, 4)
+    Traceback (most recent call last):
+              ...
+    TypeError: a must be an integer
+
+
+    >>> add_integer(4, {8, 25})
+    Traceback (most recent call last):
+              ...
+    TypeError: b must be an integer
+
+Dict
+
+    >>> add_integer({"k" : 8}, 4)
+    Traceback (most recent call last):
+              ...
+    TypeError: a must be an integer
+
+
+    >>> add_integer(4, {"k" : 25})
+    Traceback (most recent call last):
+              ...
+    TypeError: b must be an integer
+
+None
+
+    >>> add_integer(None, 4)
+    Traceback (most recent call last):
+          ...
+    TypeError: a must be an integer
+
+
+    >>> add_integer(4, None)
+    Traceback (most recent call last):
+              ...
+    TypeError: b must be an integer
