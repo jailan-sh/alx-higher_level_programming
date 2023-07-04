@@ -1,6 +1,5 @@
- Doctest for add_integer function
+The ''0-add_integer'' module
 ====================================
-
 
 ``add_integer(a, b)`` a function that return adds of 2 integers.
 arguments must be integers or floats otherwise raise error.
