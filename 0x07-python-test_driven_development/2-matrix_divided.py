@@ -19,9 +19,10 @@ def matrix_divided(matrix, div):
        not isinstance(matrix, list) or \
        not all(isinstance(row, list) for row in matrix) or \
        not all([all(isinstance(val, (int, float)) for val in row) for row in matrix]):
-           raise TypeError("matrix must be a matrix (list of lists) of integers/float")
+        msg = "matrix must be a matrix (list of lists) of integers/float"
+        raise TypeError(msg)
     row_len = set(len(row) for row in matrix)
-    if len(row_len) > 1:
+    if len(row_len) != 1:
         raise TypeError("Each row of the matrix must have the same size")
-    new =[[round(val / div , 2) for val in row] for row in matrix]
+    new = [[round(val / div, 2) for val in row] for row in matrix]
     return new
