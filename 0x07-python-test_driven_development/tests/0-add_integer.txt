@@ -136,3 +136,106 @@ None
     Traceback (most recent call last):
               ...
     TypeError: b must be an integer
+
+Overflow
+===============
+
+    >>> add_integer(float('inf'))
+    Traceback (most recent call last):
+              ...
+    OverflowError: cannot convert float infinity to integer
+
+    >>> add_integer(float('inf'), 2)
+    Traceback (most recent call last):
+              ...
+    OverflowError: cannot convert float infinity to integer
+
+    >>> add_integer(2, float('inf'))
+    Traceback (most recent call last):
+              ...
+    OverflowError: cannot convert float infinity to integer
+
+    >>> add_integer(float('inf'), float('inf'))
+    Traceback (most recent call last):
+              ...
+    OverflowError: cannot convert float infinity to integer
+
+No Arguments
+===============
+
+If no arguments are given, an error will appear asking for at least
+1 argument
+
+
+    >>> add_integer()
+    Traceback (most recent call last):
+              ...
+    TypeError: add_integer() missing 1 required positional argument: 'a'
+
+
+Not a Number
+=============
+
+
+    >>> add_integer(float('nan'))
+    Traceback (most recent call last):
+              ...
+    ValueError: cannot convert float NaN to integer
+
+    >>> add_integer(float('nan'), 2)
+    Traceback (most recent call last):
+              ...
+    ValueError: cannot convert float NaN to integer
+
+    >>> add_integer(2, float('nan'))
+    Traceback (most recent call last):
+              ...
+    ValueError: cannot convert float NaN to integer
+
+    >>> add_integer(float('nan'), float('nan'))
+    Traceback (most recent call last):
+              ...
+    ValueError: cannot convert float NaN to integer
+
+Missing Second Argument
+========================
+
+If the second argument 'b' is not provided, this variable will
+take the value 98 by default
+
+    >>> add_integer(2)
+    100
+
+    >>> add_integer(2.0)
+    100
+
+    >>> add_integer(None)
+    Traceback (most recent call last):
+              ...
+    TypeError: a must be an integer
+
+
+    >>> add_integer("Hello")
+    Traceback (most recent call last):
+              ...
+    TypeError: a must be an integer
+
+    >>> add_integer({"H": 2})
+    Traceback (most recent call last):
+              ...
+    TypeError: a must be an integer
+
+    >>> add_integer([1])
+    Traceback (most recent call last):
+              ...
+    TypeError: a must be an integer
+
+    >>> add_integer((1, 2))
+    Traceback (most recent call last):
+              ...
+    TypeError: a must be an integer
+
+    >>> add_integer({1, 2})
+    Traceback (most recent call last):
+              ...
+    TypeError: a must be an integer
