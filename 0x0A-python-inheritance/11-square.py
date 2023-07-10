@@ -32,8 +32,11 @@ class Square(Rectangle):
         """ constractor """
         super().__init__(size, size)
         self.__size = size
-        self.integer_validator("size", size)
 
     def area(self):
         """ Public instance method calculate area"""
         return super().area()
+
+    def __str__(self):
+        """ Method for when print is used """
+        return f"[Square] {self.__size}/{self.__size}"
