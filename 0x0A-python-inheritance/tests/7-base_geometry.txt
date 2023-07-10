@@ -34,6 +34,7 @@ area puplic instance
     TypeError: area() takes 1 positional argument but 2 were given
 
 value validator instance method
+missing args
 ===============================
 
     >>> bg.integer_validator()
@@ -109,7 +110,13 @@ value validation
     TypeError: Hello must be an integer
 
 
-    >>> bg.integer_validator("Hello", "None")
+    >>> bg.integer_validator("Hello", "jailan")
+    Traceback (most recent call last):
+                   ...
+    TypeError: Hello must be an integer
+
+
+    >>> bg.integer_validator("Hello", True)
     Traceback (most recent call last):
                    ...
     TypeError: Hello must be an integer
