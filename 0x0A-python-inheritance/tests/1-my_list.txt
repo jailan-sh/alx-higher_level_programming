@@ -1,0 +1,66 @@
+the '' 1-my_list ''doctest
+===========================
+
+``MyList(list)`` is a class that inherits from class list
+Public instance method: ''my_list.print_sorted()'' prints the list, but sorted (ascending sort)
+
+import function
+===============
+
+    >>> MyList = __import__('1-my_list').MyList
+
+instance check
+==============
+
+    >>> my_list = MyList(1)
+    Traceback (most recent call last):
+              ...
+    TypeError: 'int' object is not iterable
+
+    >>> my_list = MyList(-1)
+    Traceback (most recent call last):
+              ...
+    TypeError: 'int' object is not iterable
+
+    >>> my_list = MyList(4, 5)
+    Traceback (most recent call last):
+              ...
+    TypeError: list expected at most 1 argument, got 2
+
+    >>> my_list = MyList()
+
+Public Method check
+===================
+
+     >>> my_list.print_sorted(1)
+     Traceback (most recent call last):
+                           ...
+     TypeError: print_sorted() takes 1 positional argument but 2 were given
+
+     >>> my_list.print_sorted(1, 2)
+     Traceback (most recent call last):
+                            ...
+     TypeError: print_sorted() takes 1 positional argument but 3 were given
+
+     >>> my_list.print_sorted()
+     []
+
+     >>> my_list.append(1)
+     >>> my_list.append(4)
+     >>> my_list.append(2)
+     >>> my_list.append(3)
+     >>> my_list.append(5)
+     >>> my_list.print_sorted()
+     [1, 2, 3, 4, 5]
+
+    >>> my_list.clear()
+
+     >>> my_list.append(-1)
+     >>> my_list.append(-4)
+     >>> my_list.append(-2)
+     >>> my_list.append(-3)
+     >>> my_list.append(-5)
+     >>> my_list.print_sorted()
+     [-5, -4, -3, -2, -1]
+
+
