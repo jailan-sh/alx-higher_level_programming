@@ -17,7 +17,6 @@ instance work
 
     >>> bg = BaseGeometry(1)
     Traceback (most recent call last):
-                 ...
     TypeError: BaseGeometry() takes no arguments
 
 area puplic instance
@@ -25,12 +24,10 @@ area puplic instance
 
     >>> bg.area()
     Traceback (most recent call last):
-                 ...
     Exception: area() is not implemented
 
     >>> bg.area(5)
     Traceback (most recent call last):
-                  ...
     TypeError: area() takes 1 positional argument but 2 were given
 
 value validator instance method
@@ -39,17 +36,14 @@ missing args
 
     >>> bg.integer_validator()
     Traceback (most recent call last):
-                     ...
     TypeError: integer_validator() missing 2 required positional arguments: 'name' and 'value'
 
     >>> bg.integer_validator("Hello")
     Traceback (most recent call last):
-                         ...
     TypeError: integer_validator() missing 1 required positional argument: 'value'
 
     >>> bg.integer_validator("Hello", 2, 2)
     Traceback (most recent call last):
-                    ...
     TypeError: integer_validator() takes 3 positional arguments but 4 were given
 
 value validation
@@ -60,9 +54,7 @@ value validation
 
     >>> bg.integer_validator("Hello", 2.03)
     Traceback (most recent call last):
-                   ...
     TypeError: Hello must be an integer
-
 
 
     >>> bg.integer_validator("Hello", (2))
@@ -70,53 +62,44 @@ value validation
 
     >>> bg.integer_validator("Hello", (2, ))
     Traceback (most recent call last):
-                   ...
     TypeError: Hello must be an integer
 
 
     >>> bg.integer_validator("Hello", {1: 2})
     Traceback (most recent call last):
-                   ...
     TypeError: Hello must be an integer
 
 
     >>> bg.integer_validator("Hello", {2})
     Traceback (most recent call last):
-                   ...
     TypeError: Hello must be an integer
 
 
     >>> bg.integer_validator("Hello", [2])
     Traceback (most recent call last):
-                   ...
     TypeError: Hello must be an integer
 
 
     >>> bg.integer_validator("Hello", 0)
     Traceback (most recent call last):
-                   ...
     ValueError: Hello must be greater than 0
 
 
     >>> bg.integer_validator("Hello", -2)
     Traceback (most recent call last):
-                   ...
     ValueError: Hello must be greater than 0
 
 
     >>> bg.integer_validator("Hello", None)
     Traceback (most recent call last):
-                   ...
     TypeError: Hello must be an integer
 
 
     >>> bg.integer_validator("Hello", "jailan")
     Traceback (most recent call last):
-                   ...
     TypeError: Hello must be an integer
 
 
     >>> bg.integer_validator("Hello", True)
     Traceback (most recent call last):
-                   ...
     TypeError: Hello must be an integer
