@@ -63,4 +63,23 @@ Public Method check
      >>> my_list.print_sorted()
      [-5, -4, -3, -2, -1]
 
+Check Type and instance
+==========================
 
+    >>> type(my_list) == MyList
+    True
+
+    >>> type(my_list) == list
+    False
+
+    >>> isinstance(my_list, MyList)
+    True
+
+    >>> isinstance(my_list, list)
+    True
+
+    >>> issubclass(MyList, list)
+    True
+
+   >>> type(my_list.print_sorted)
+   <class 'method'>
