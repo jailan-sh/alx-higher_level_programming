@@ -90,21 +90,11 @@ class Rectangle(Base):
         st = st.format(self.id, self.x, self.y, self.width, self.height)
         return st
 
-    def update(self, *args, **kwargs):
+    def update(self, *args):
         """  assigns an argument to each attribute"""
         mylist = ["id", "width", "height", "x", "y"]
-        if args:
-            for i, arg in enumerate(args):
-                if i == 0:
-                    super().__init__(arg)
-                elif i < len(mylist):
-                    setattr(self, mylist[i], arg)
-        else:
-            for key, value in kwargs.items():
-                setattr(self, key, value)
-
-    def to_dictionary(self):
-        """ func. returns the dictionary representation of a Rectangle"""
-        rdict = {"id": self.id, "width": self.width, "height": self.height,
-                  "x": self.x, "y": self.y}
-        return rdict
+        i = 0
+        for arg in args:
+            if i <= len(mylist):
+                setattr(self, mylist[i], arg)
+            i += 1

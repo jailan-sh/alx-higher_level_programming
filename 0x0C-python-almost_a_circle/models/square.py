@@ -26,3 +26,19 @@ class Square(Rectangle):
         st = "[Square] ({:d}) {:d}/{:d} - {:d}"
         st = st.format(self.id, self.x, self.y, self.width)
         return st
+
+    def update(self, *args, **kwargs):
+        """  assigns an argument to each attribute"""
+        mylist = ["id", "width", "height", "x", "y"]
+        if args:
+            for i, arg in enumerate(args):
+                if i < len(mylist):
+                    setattr(self, mylist[i], arg)
+        else:
+            for key, value in kwargs.items():
+                setattr(self, key, value)
+
+    def to_dictionary(self):
+        """func. Returns dicitionary representation of Square """
+        sdict = {"id": self.id, "size": self.size, "x": self.x, "y": self.y}
+        return sdict
