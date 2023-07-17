@@ -29,11 +29,9 @@ class Square(Rectangle):
 
     def update(self, *args, **kwargs):
         """  assigns an argument to each attribute"""
-        mylist = ["id", "width", "height", "x", "y"]
+        mylist = ["id", "size", "x", "y"]
         if args:
             for i, arg in enumerate(args):
-                if i == 0:
-                    super().__init__(arg)
                 if i < len(mylist):
                     setattr(self, mylist[i], arg)
         else:
