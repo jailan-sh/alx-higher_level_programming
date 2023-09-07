@@ -3,9 +3,10 @@
 
 
 class Square:
-    """ class square."""
+    """ class square """
     def __init__(self, size=0):
-        """Private instance attribute: size"""
+        """constructor 
+        Private instance attribute: size"""
         if not isinstance(size, int):
             raise TypeError("size must be an integer")
         elif size < 0:
