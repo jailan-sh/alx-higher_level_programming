@@ -1,11 +1,18 @@
 #!/usr/bin/node
 
 if (Number(process.argv[2])) {
-  for (let x = 0; x < Number(process.argv[2]); x++) {
-    for (let j = 0; j < Number(process.argv[2]); j++) {
-      console.log('x');
+  const size = Number(process.argv[2]);
+  let i = 0;
+  while (i < size) {
+    let j = 0;
+    let row = '';
+    while (j < size) {
+      row += 'X';
+      j++;
     }
+    console.log(row);
+    i++;
   }
 } else {
-  console.log('Missing sizes');
+  console.log('Missing size');
 }
