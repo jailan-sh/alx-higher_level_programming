@@ -3,25 +3,23 @@
 
 
 import sys
-import MYSQLdb
+import MySQLdb
 
-if __name__ = '__main__'
-mydb = MYSQLdb.connect(
-    host = "localhost",
-    user = sys.argv[1],
-    passward = sys.argv[2],
-    port = 3306,
-    db = sys.argv[3]
-)
-
-mycursor = mydb.cursor()
-
-   cur.execute("SELECT states.id, name FROM states WHERE name "
+if __name__ == '__main__':
+    mydb = MySQLdb.connect(host="localhost",
+                       user=sys.argv[1],
+                       passwd=sys.argv[2],
+                       port=3306,
+                       db=sys.argv[3]
+                       )
+    mycursor = mydb.cursor()
+    
+    mycursor.execute("SELECT states.id, name FROM states WHERE name "
                 "COLLATE latin1_general_cs "
                 "LIKE 'N%' "
                 "ORDER BY states.id ASC;")
-    rows = cur.fetchall()
+    rows = mycuror.fetchall()
     for row in rows:
         print(row)
-cursor.close()
-db.close()
+mycursor.close()
+mydb.close()
