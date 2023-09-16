@@ -15,9 +15,9 @@ if __name__ == '__main__':
     )
     mycursor = mydb.cursor()
     sql = "SELECT states.id, name FROM states\
-           WHERE name = %s\
+           WHERE BINARY name = '{}%s'\
            ORDER BY states.id ASC"
-    mycursor.execute(sql, (sys.argv[4], ))
+    mycursor.execute(sql(sys.argv[4],))
     rows = mycursor.fetchall()
     for row in rows:
         print(row)
