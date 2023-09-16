@@ -19,6 +19,6 @@ if __name__ == '__main__':
     mycursor.execute(sql)
     rows = mycursor.fetchall()
     for row in rows:
-        print(row)
+        print("({}, '{}', '{}')".format(row[0], row[1], row[2]))
     mycursor.close()
     mydb.close()

@@ -12,8 +12,7 @@ if __name__ == "__main__":
                            pool_pre_ping=True)
     session = sessionmaker(bind=engine)
     session = session()
-    states = session.query(State).order_by(State.id).first()
-    if states:
-        print("{}: {}".format(states.id, states.name))
-    else:
-        print("Nothing")
+    states = session.query(State).filter(State.name.like('%a%'))\
+                                 .order_by(State.id)
+    for state in states:
+        print("{}: {}".format(state.id, state.name))
