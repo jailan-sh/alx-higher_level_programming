@@ -14,11 +14,13 @@ if __name__ == '__main__':
         db=sys.argv[3]
     )
     mycursor = mydb.cursor()
-    sql = "SELECT cities.id, name FROM cities\
+    sql = "SELECT cities.id, cities.name, states.name\
+           FROM cities\
+           JOIN states ON cities.state_id = states.id\
            ORDER BY cities.id ASC"
     mycursor.execute(sql)
     rows = mycursor.fetchall()
     for row in rows:
-        print("({}, '{}', '{}')".format(row[0], row[1], row[2]))
+        print(row)
     mycursor.close()
     mydb.close()
