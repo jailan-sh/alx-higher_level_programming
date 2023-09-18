@@ -1,21 +1,30 @@
 #!/usr/bin/python3
-"""Start link class to table in database
+"""
+City Relationship
 """
 import sys
 from relationship_state import Base, State
 from relationship_city import Base, City
+from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker
-from sqlalchemy import (create_engine)
 
 if __name__ == "__main__":
-    engine = create_engine('mysql+mysqldb://{}:{}@localhost/{}'
-                           .format(sys.argv[1], sys.argv[2], sys.argv[3]),
+    engine = create_engine('mysql+mysqldb://{}:{}@localhost:3306/{}'.
+                           format(sys.argv[1], sys.argv[2], sys.argv[3]),
                            pool_pre_ping=True)
+
     session = sessionmaker(bind=engine)
     session = session()
-    records = session.query(State, City)\
-        .join(City, City.state_id == State.id)\
-        .order_by(City.id).all()
-    for state, city in records:
-        print("{}: ({}) {}".format(state.name, city.id, city.name))
+
+    nstate = "California"
+    ncity = "San Francisco"
+
+    newState = State(name=nstate)
+
+    newCity = City(name=ncity, state=newState)
+
+    session.add(newCity)
+
+    session.commit()
+
     session.close()
