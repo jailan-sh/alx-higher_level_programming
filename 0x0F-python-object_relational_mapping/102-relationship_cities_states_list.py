@@ -14,10 +14,9 @@ if __name__ == "__main__":
 
     session = sessionmaker(bind=engine)
     session = session()
-    quary = session.query(City)\
-                      .join(State)\
-                      .filter(State.id == City.state_id)\
-                      .order_by(City.id).all()
+    quary = session.query(City).join(State)\
+        .filter(State.id == City.state_id)\
+        .order_by(City.id).all()
     for city in quary:
         print("{}: {} -> {}".
               format(city.id, city.name, city.state.name))
