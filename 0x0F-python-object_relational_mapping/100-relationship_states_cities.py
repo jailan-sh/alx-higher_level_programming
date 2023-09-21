@@ -1,7 +1,6 @@
 #!/usr/bin/python3
-"""
-City Relationship
-"""
+"""City Relationship"""
+
 import sys
 from relationship_state import Base, State
 from relationship_city import Base, City
