@@ -11,20 +11,13 @@ if __name__ == "__main__":
     engine = create_engine('mysql+mysqldb://{}:{}@localhost:3306/{}'.
                            format(sys.argv[1], sys.argv[2], sys.argv[3]),
                            pool_pre_ping=True)
-    Base.metadata.create_all(engine)
 
     session = sessionmaker(bind=engine)
     session = session()
-
-    nstate = "California"
-    ncity = "San Francisco"
-
-    newState = State(name=nstate)
-
-    newCity = City(name=ncity, state=newState)
-
-    session.add(newCity)
-
-    session.commit()
+    states = session.query(State).order_by(State.id).all()
+    for state in states:
+        print('{}: {}'.format(state.id, state.name))
+        for city in state.cities:
+            print('\t{}: {}'.format(city.id, city.name))
 
     session.close()
