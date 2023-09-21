@@ -20,11 +20,8 @@ if __name__ == "__main__":
     ncity = "San Francisco"
 
     newState = State(name=nstate)
-
-    newCity = City(name=ncity, state=newState)
-
-    session.add(newCity)
-
+    newCity = City(name=ncity)
+    newState.cities = [newCity]
+    session.add(newState)
     session.commit()
-
     session.close()
