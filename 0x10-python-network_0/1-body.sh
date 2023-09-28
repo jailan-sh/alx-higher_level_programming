@@ -1,3 +1,3 @@
 #!/bin/bash
-#sends a request to URL, and displays the size of the body of the response
-curl -sI "$1" | grep "Content-Length:" | awk '{print $2}'
+#Display only body of a 200 status code response
+curl -sL "$1"
